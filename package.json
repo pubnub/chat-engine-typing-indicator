@@ -1,0 +1,8 @@
+{
+  "name": "ocf-typing-indicator",
+  "version": "0.0.1",
+  "main": "./plugin.js",
+  "open-chat-framework": {
+    "namespace": "typing-indicator"
+  }
+}

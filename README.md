@@ -1,0 +1,2 @@
+# Typing Indicator Plugin
+
