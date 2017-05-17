@@ -13,7 +13,7 @@ module.exports = (config) => {
         construct() {
 
             // keep comms on a new channel so we don't flood chat channel
-            this.chat = new this.OCF.Chat(this.parent.channel + '.$' + namespace);
+            this.chat = new this.OCF.Chat(this.parent.channel + '.$' + 'typingIndicator');
 
             // forward events via broadcast
             this.chat.on('$typingIndicator.startTyping', (event) => {
@@ -36,7 +36,7 @@ module.exports = (config) => {
             this.isTyping = true;
 
             // send an event over the network that this user started typing
-            this.chat.send(['$' + namespace, 'startTyping'].join('.'));
+            this.chat.send(['$' + 'typingIndicator', 'startTyping'].join('.'));
 
             // kill any existing timeouts
             clearTimeout(stopTypingTimeout);
@@ -59,7 +59,7 @@ module.exports = (config) => {
                 clearTimeout(stopTypingTimeout);
 
                 // broadcast a stoptyping event
-                this.chat.send(['$' + namespace, 'stopTyping'].join('.'));
+                this.chat.send(['$' + 'typingIndicator', 'stopTyping'].join('.'));
 
                 // stop typing indicator
                 this.isTyping = false;
