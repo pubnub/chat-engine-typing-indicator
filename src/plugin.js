@@ -86,7 +86,7 @@ module.exports = (config) => {
 
     // define both the extended methods and the middleware in our plugin
     return {
-        namespace: 'typing-indicator',
+        namespace: 'typingIndicator',
         extends: {
             Chat: extension,
             GlobalChat: extension
