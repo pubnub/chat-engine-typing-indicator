@@ -1,11 +1,11 @@
 {
   "name": "ocf-typing-indicator",
   "version": "0.0.1",
-  "main": "./plugin.js",
+  "main": "src/plugin.js",
   "open-chat-framework": {
     "namespace": "typing-indicator"
   },
   "dependencies": {
-    "ocf": "^0.0.2"
+    "ocf": "^0.0.4"
   }
 }

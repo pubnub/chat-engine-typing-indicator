@@ -1,13 +1,13 @@
 module.exports = (config) => {
-        
+
     // set the default for typing
-    // if the client types input, we wont fire "stopTyping" unless the client 
+    // if the client types input, we wont fire "stopTyping" unless the client
     // doesn't type anything for this timeout
     config = config || {timeout: 1000};
 
     // create a place to store the setTimeout in
     let stopTypingTimeout = null;
-    
+
     // define the methods that will be attached to the class Chat
     class extension  {
         construct() {
@@ -45,7 +45,7 @@ module.exports = (config) => {
             stopTypingTimeout = setTimeout (() => {
 
                 // trigger stop typing after a set amount of time
-                this.stopTyping();   
+                this.stopTyping();
 
             }, config.timeout);
 
@@ -54,12 +54,12 @@ module.exports = (config) => {
 
             // we must be currently typing to stop typing
             // if(this.isTyping) {
-                
+
                 // remove the timeout
                 clearTimeout(stopTypingTimeout);
-                
+
                 // broadcast a stoptyping event
-                this.chat.send(['$' + namespace, 'stopTyping'].join('.'));      
+                this.chat.send(['$' + namespace, 'stopTyping'].join('.'));
 
                 // stop typing indicator
                 this.isTyping = false;
@@ -86,6 +86,7 @@ module.exports = (config) => {
 
     // define both the extended methods and the middleware in our plugin
     return {
+        namespace: 'typing-indicator',
         extends: {
             Chat: extension,
             GlobalChat: extension
