@@ -1,4 +1,5 @@
 {
+  "author": "Ian Jennings",
   "name": "ocf-typing-indicator",
   "version": "0.0.1",
   "main": "src/plugin.js",
