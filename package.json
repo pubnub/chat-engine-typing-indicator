@@ -1,7 +1,7 @@
 {
   "author": "Ian Jennings",
   "name": "ocf-typing-indicator",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "src/plugin.js",
   "open-chat-framework": {
     "namespace": "typing-indicator"

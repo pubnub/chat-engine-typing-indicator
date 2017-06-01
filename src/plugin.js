@@ -35,8 +35,8 @@ module.exports = (config) => {
             // set boolean that we're in middle of typing
             this.isTyping = true;
 
-            // send an event over the network that this user started typing
-            this.chat.send(['$' + 'typingIndicator', 'startTyping'].join('.'));
+            // emit an event over the network that this user started typing
+            this.chat.emit(['$' + 'typingIndicator', 'startTyping'].join('.'));
 
             // kill any existing timeouts
             clearTimeout(stopTypingTimeout);
@@ -59,7 +59,7 @@ module.exports = (config) => {
                 clearTimeout(stopTypingTimeout);
 
                 // broadcast a stoptyping event
-                this.chat.send(['$' + 'typingIndicator', 'stopTyping'].join('.'));
+                this.chat.emit(['$' + 'typingIndicator', 'stopTyping'].join('.'));
 
                 // stop typing indicator
                 this.isTyping = false;
@@ -69,8 +69,8 @@ module.exports = (config) => {
         }
     }
 
-    // define send middleware
-    let send = {
+    // define emit middleware
+    let emit = {
         message: (payload, next) => {
 
             // it's worth noting here, we can't access ```extension``` here
@@ -92,7 +92,7 @@ module.exports = (config) => {
             GlobalChat: extension
         },
         middleware: {
-            send
+            emit
         }
     }
 
