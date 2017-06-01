@@ -17,11 +17,11 @@ module.exports = (config) => {
 
             // forward events via broadcast
             this.chat.on('$typingIndicator.startTyping', (event) => {
-                this.parent.broadcast('$typingIndicator.startTyping', event);
+                this.parent.trigger('$typingIndicator.startTyping', event);
             });
 
             this.chat.on('$typingIndicator.stopTyping', (event) => {
-                this.parent.broadcast('$typingIndicator.stopTyping', event);
+                this.parent.trigger('$typingIndicator.stopTyping', event);
             });
 
             // will set Chat.typing.isTyping to false immediately
