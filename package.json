@@ -1,12 +1,12 @@
 {
   "author": "Ian Jennings",
-  "name": "ocf-typing-indicator",
+  "name": "chat-engine-typing-indicator",
   "version": "0.0.4",
   "main": "src/plugin.js",
   "open-chat-framework": {
     "namespace": "typing-indicator"
   },
   "dependencies": {
-    "ocf": "^0.0.4"
+    "chat-engine": "^0.0.4"
   }
 }
