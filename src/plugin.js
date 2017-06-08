@@ -12,18 +12,6 @@ module.exports = (config) => {
     class extension  {
         construct() {
 
-            // keep comms on a new channel so we don't flood chat channel
-            this.chat = new this.OCF.Chat(this.parent.channel + '.$' + 'typingIndicator');
-
-            // forward events via broadcast
-            this.chat.on('$typingIndicator.startTyping', (event) => {
-                this.parent.trigger('$typingIndicator.startTyping', event);
-            });
-
-            this.chat.on('$typingIndicator.stopTyping', (event) => {
-                this.parent.trigger('$typingIndicator.stopTyping', event);
-            });
-
             // will set Chat.typing.isTyping to false immediately
             this.isTyping = false;
 
@@ -36,7 +24,7 @@ module.exports = (config) => {
             this.isTyping = true;
 
             // emit an event over the network that this user started typing
-            this.chat.emit(['$' + 'typingIndicator', 'startTyping'].join('.'));
+            this.parent.emit(['$' + 'typingIndicator', 'startTyping'].join('.'));
 
             // kill any existing timeouts
             clearTimeout(stopTypingTimeout);
@@ -59,7 +47,7 @@ module.exports = (config) => {
                 clearTimeout(stopTypingTimeout);
 
                 // broadcast a stoptyping event
-                this.chat.emit(['$' + 'typingIndicator', 'stopTyping'].join('.'));
+                this.parent.emit(['$' + 'typingIndicator', 'stopTyping'].join('.'));
 
                 // stop typing indicator
                 this.isTyping = false;
