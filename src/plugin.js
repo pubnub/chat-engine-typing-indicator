@@ -1,3 +1,11 @@
+/**
+* @module chat-engine-typing-indicator
+* @requires {@link ChatEngine}
+*/
+
+/**
+* @function
+*/
 module.exports = (config) => {
 
     // set the default for typing
@@ -16,6 +24,11 @@ module.exports = (config) => {
             this.isTyping = false;
 
         }
+
+        /**
+        @method typingindicator"."startTyping
+        @ceextends Chat
+        */
         startTyping() {
 
             // this is called manually by the client
@@ -23,7 +36,17 @@ module.exports = (config) => {
             // set boolean that we're in middle of typing
             this.isTyping = true;
 
+            /**
+            @event $typingIndicator.startTyping
+            @ceextends Chat
+            */
             // emit an event over the network that this user started typing
+            //
+            /**
+            broadcast a stoptyping event
+            @event $typingIndiciator"."startTyping
+            @ceextends Chat
+            */
             this.parent.emit(['$' + 'typingIndicator', 'startTyping'].join('.'));
 
             // kill any existing timeouts
@@ -38,6 +61,11 @@ module.exports = (config) => {
             }, config.timeout);
 
         }
+
+        /**
+        @method typingindicator"."stopTyping
+        @ceextends Chat
+        */
         stopTyping() {
 
             // we must be currently typing to stop typing
@@ -46,7 +74,11 @@ module.exports = (config) => {
                 // remove the timeout
                 clearTimeout(stopTypingTimeout);
 
-                // broadcast a stoptyping event
+                /**
+                broadcast a stoptyping event
+                @event $typingIndiciator"."stopTyping
+                @ceextends Chat
+                */
                 this.parent.emit(['$' + 'typingIndicator', 'stopTyping'].join('.'));
 
                 // stop typing indicator
@@ -85,4 +117,4 @@ module.exports = (config) => {
     }
 
 
-}
+};
