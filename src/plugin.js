@@ -5,13 +5,15 @@
 
 /**
 * @function
+* @param {Object} [config] The plugin config object
+* @param {Integer} [config.timeout] Fires the "stopTyping" event if have not typed within this setting. Milliseconds.
 */
-module.exports = (config) => {
+module.exports = (config = {}) => {
 
     // set the default for typing
     // if the client types input, we wont fire "stopTyping" unless the client
     // doesn't type anything for this timeout
-    config = config || {timeout: 1000};
+    config.timeout = config.timeout || 1000;
 
     // create a place to store the setTimeout in
     let stopTypingTimeout = null;
@@ -108,8 +110,7 @@ module.exports = (config) => {
     return {
         namespace: 'typingIndicator',
         extends: {
-            Chat: extension,
-            GlobalChat: extension
+            Chat: extension
         },
         middleware: {
             emit
