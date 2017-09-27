@@ -1,10 +1,31 @@
 /**
+* Emits the ```$typingIndicator.startTyping``` and ``$typingIndicator.stopTyping``` even on a {@link Chat} when a user is marked as typing or not typing.
 * @module chat-engine-typing-indicator
 * @requires {@link ChatEngine}
 */
 
 /**
 * @function
+* @example
+* chat.plugin(ChatEngineCore.plugin['chat-engine-typing-indicator']());
+* 
+* // focused on the chatroom
+* chat.typingIndicator.startTyping();
+* 
+* // looking at any other chatroom
+* chat.typingIndicator.stopTyping();
+* 
+* // typing boolean
+* chat.isTyping;
+* // False
+* 
+* chat.on('$typingIndicator.startTyping', (payload) => {
+*     console.log(payload.user, "is typing...");
+* });
+* 
+* chat.on('$typingIndicator.stopTyping', (payload) => {
+*     console.log(payload.user, "is not typing.");
+* });
 */
 module.exports = (config) => {
 
@@ -20,7 +41,7 @@ module.exports = (config) => {
     class extension  {
         construct() {
 
-            // will set Chat.typing.isTyping to false immediately
+            // will set Chat.typingIndicator.isTyping to false immediately
             this.isTyping = false;
 
         }
