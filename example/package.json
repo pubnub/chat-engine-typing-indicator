@@ -1,0 +1,10 @@
+{
+  "name": "example",
+  "version": "0.0.1",
+  "author": "raimondi1337",
+  "dependencies": {
+    "chat-engine": "^0.4.2",
+    "chat-engine-typing-indicator": "0.0.6",
+    "http-server": "^0.10.0"
+  }
+}
