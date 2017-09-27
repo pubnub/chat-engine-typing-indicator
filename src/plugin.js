@@ -15,7 +15,7 @@
 * chat.typingIndicator.startTyping();
 * 
 * // manually emit the stop tying event
-* // this is automagically emitted after the timeout period
+* // this is automagically emitted after the timeout period, or when a message is sent
 * chat.typingIndicator.stopTyping();
 * 
 * // typing boolean
