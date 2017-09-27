@@ -2,10 +2,6 @@
 // That will let you know when you are typing
 // (useful, I know)
 
-// get some references to our UI elements
-const input = document.getElementById('input');
-const output = document.getElementById('output');
-
 // get some references to functions
 let send = function () {};
 let submit = function () {};
@@ -67,10 +63,10 @@ ChatEngine.on('$.ready', () => {
     send = function () {
 
         ChatEngine.global.emit('message', {
-            text: input.value
+            text: $('#input').val()
         });
 
-        input.value = '';
+        $('#input').val('');
 
         return false;
 
@@ -79,9 +75,7 @@ ChatEngine.on('$.ready', () => {
     // when any message is emitted on the global channel add it to the chat log
     ChatEngine.global.on('message', (payload) => {
 
-        let div = document.createElement('p');
-        div.innerHTML = payload.sender.uuid + ': ' + payload.data.text;
-        output.appendChild(div);
+        $('#output').append($('<p><strong>' + payload.sender.uuid + ':</strong> ' + payload.data.text + '</p>'));
 
     });
 
