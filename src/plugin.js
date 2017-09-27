@@ -7,12 +7,15 @@
 /**
 * @function
 * @example
-* chat.plugin(ChatEngineCore.plugin['chat-engine-typing-indicator']());
+* //providing a config is optional, the default timeout is 1000ms
+* let config = { timeout: 1000 }
+* chat.plugin(ChatEngineCore.plugin['chat-engine-typing-indicator'](config));
 * 
-* // focused on the chatroom
+* // emit the typing event
 * chat.typingIndicator.startTyping();
 * 
-* // looking at any other chatroom
+* // manually emit the stop tying event
+* // this is automagically emitted after the timeout period
 * chat.typingIndicator.stopTyping();
 * 
 * // typing boolean
@@ -27,6 +30,7 @@
 *     console.log(payload.user, "is not typing.");
 * });
 */
+
 module.exports = (config) => {
 
     // set the default for typing
