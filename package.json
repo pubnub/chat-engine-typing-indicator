@@ -7,6 +7,6 @@
     "namespace": "typing-indicator"
   },
   "dependencies": {
-    "chat-engine": "0.2.x"
+    "chat-engine": "^0.5.2"
   }
 }
