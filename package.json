@@ -3,9 +3,6 @@
   "name": "chat-engine-typing-indicator",
   "version": "0.0.6",
   "main": "src/plugin.js",
-  "open-chat-framework": {
-    "namespace": "typing-indicator"
-  },
   "dependencies": {
     "chat-engine": "^0.5.2"
   }
