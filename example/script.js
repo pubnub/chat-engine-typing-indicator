@@ -7,7 +7,7 @@ let send = function () {};
 let keypress = function () {};
 
 // create an optional config object to increase the default timeout from 1000ms
-let config = { timeout: 2000 }
+let config = { timeout: 2000 };
 
 // create an instance of chat-engine
 const ChatEngine = ChatEngineCore.create({
@@ -44,16 +44,16 @@ ChatEngine.on('$.ready', () => {
     };
 
     // when the plugin emits it events, update the UI element accordingly
-    // bootstap automagically makes it go away if it's ''
+    // bootstap automagically makes it go away if it's empty
     ChatEngine.global.on('$typingIndicator.startTyping', (payload) => {
 
-        document.getElementById('typing').innerHTML = payload.sender.uuid + " is typing...";
+        $('#typing').html(payload.sender.uuid + " is typing...");
 
     });
 
     ChatEngine.global.on('$typingIndicator.stopTyping', (payload) => {
 
-        document.getElementById('typing').innerHTML = '';
+        $('#typing').empty();
 
     });
 
