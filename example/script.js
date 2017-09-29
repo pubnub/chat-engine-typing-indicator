@@ -4,7 +4,6 @@
 
 // get some references to functions
 let send = function () {};
-let submit = function () {};
 let keypress = function () {};
 
 // create an optional config object to increase the default timeout from 1000ms
