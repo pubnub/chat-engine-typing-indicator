@@ -2,8 +2,11 @@
   "name": "example",
   "version": "0.0.1",
   "author": "raimondi1337",
+  "scripts": {
+  	"start": "node node_modules/chat-engine/server.js & http-server -o && fg"
+  },
   "dependencies": {
-    "chat-engine": "^0.4.2",
+    "chat-engine": "^0.5.2",
     "chat-engine-typing-indicator": "0.0.6",
     "http-server": "^0.10.0"
   }
