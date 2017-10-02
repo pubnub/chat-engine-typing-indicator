@@ -1,14 +1,40 @@
 /**
+* Emits the ```$typingIndicator.startTyping``` and ``$typingIndicator.stopTyping``` even on a {@link Chat} when a user is marked as typing or not typing.
 * @module chat-engine-typing-indicator
 * @requires {@link ChatEngine}
 */
 
 /**
-* @function
-* @param {Object} [config] The plugin config object
-* @param {Integer} [config.timeout] Fires the "stopTyping" event if have not typed within this setting. Milliseconds.
+@function
+@param {Object} [config] The plugin config object
+@param {Integer} [config.timeout] Fires the "stopTyping" event if have not typed within this setting. Milliseconds.
+@example
+
+//providing a config is optional, the default timeout is 1000ms
+let config = { timeout: 1000 }
+chat.plugin(ChatEngineCore.plugin['chat-engine-typing-indicator'](config));
+
+// emit the typing event
+chat.typingIndicator.startTyping();
+
+// manually emit the stop tying event
+// this is automagically emitted after the timeout period, or when a message is sent
+chat.typingIndicator.stopTyping();
+
+// typing boolean
+chat.isTyping;
+// False
+
+chat.on('$typingIndicator.startTyping', (payload) => {
+    console.log(payload.user, "is typing...");
+});
+
+chat.on('$typingIndicator.stopTyping', (payload) => {
+    console.log(payload.user, "is not typing.");
+});
 */
-module.exports = (config = {}) => {
+
+module.exports = (config) => {
 
     // set the default for typing
     // if the client types input, we wont fire "stopTyping" unless the client
@@ -22,7 +48,7 @@ module.exports = (config = {}) => {
     class extension  {
         construct() {
 
-            // will set Chat.typing.isTyping to false immediately
+            // will set Chat.typingIndicator.isTyping to false immediately
             this.isTyping = false;
 
         }
