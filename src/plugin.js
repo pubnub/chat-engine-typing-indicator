@@ -51,37 +51,23 @@ module.exports = (config) => {
             // will set Chat.typingIndicator.isTyping to false immediately
             this.isTyping = false;
 
-            this.lastEmit = new Date().getTime();
-
         }
 
         /**
+        emit an event over the network that this user started typing
         @method typingindicator"."startTyping
         @ceextends Chat
         */
         startTyping() {
 
+            if(!this.isTyping) {
+                this.parent.emit(['$' + 'typingIndicator', 'startTyping'].join('.'));
+            };
+
             // this is called manually by the client
 
             // set boolean that we're in middle of typing
             this.isTyping = true;
-
-            /**
-            @event $typingIndicator.startTyping
-            @ceextends Chat
-            */
-            // emit an event over the network that this user started typing
-            //
-            /**
-            broadcast a stoptyping event
-            @event $typingIndiciator"."startTyping
-            @ceextends Chat
-            */
-
-            if(new Date().getTime() - this.lastEmit > config.timeout) {
-                this.parent.emit(['$' + 'typingIndicator', 'startTyping'].join('.'));
-                this.lastEmit = new Date().getTime();
-            };
 
             // kill any existing timeouts
             clearTimeout(stopTypingTimeout);

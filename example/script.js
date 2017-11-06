@@ -11,11 +11,12 @@ let config = { timeout: 2000 };
 
 // create an instance of chat-engine
 const ChatEngine = ChatEngineCore.create({
-    publishKey: 'pub-c-bcf4e625-d5e0-45de-9f74-f222bf63a4a1',
-    subscribeKey: 'sub-c-70f29a7c-8927-11e7-af73-96e8309537a2',
+    publishKey: 'pub-c-311175ef-cdc1-4da9-9b70-f3e129bb220e',
+    subscribeKey: 'sub-c-a3da7f1c-bfe7-11e7-a9bc-9af884579700',
 }, {
-    endpoint: 'http://localhost:3000/insecure',
-    globalChannel: 'typing-indicator-example'
+    endpoint: 'https://pubsub.pubnub.com/v1/blocks/sub-key/sub-c-a3da7f1c-bfe7-11e7-a9bc-9af884579700/insecure',
+    globalChannel: 'typing-indicator-example',
+    debug: true
 });
 
 // connect kowalski to the network, and when it is successful, do some stuff
