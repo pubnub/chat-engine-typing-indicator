@@ -30,7 +30,7 @@ chat.on('$typingIndicator.startTyping', (payload) => {
 });
 
 chat.on('$typingIndicator.stopTyping', (payload) => {
-    console.log(payload.user, "is not typing.");
+        (payload.user, "is not typing.");
 });
 */
 
@@ -50,6 +50,8 @@ module.exports = (config) => {
 
             // will set Chat.typingIndicator.isTyping to false immediately
             this.isTyping = false;
+
+            this.lastEmit = new Date().getTime();
 
         }
 
@@ -75,7 +77,11 @@ module.exports = (config) => {
             @event $typingIndiciator"."startTyping
             @ceextends Chat
             */
-            this.parent.emit(['$' + 'typingIndicator', 'startTyping'].join('.'));
+
+            if(new Date().getTime() - this.lastEmit > config.timeout) {
+                this.parent.emit(['$' + 'typingIndicator', 'startTyping'].join('.'));
+                this.lastEmit = new Date().getTime();
+            };
 
             // kill any existing timeouts
             clearTimeout(stopTypingTimeout);
