@@ -2,9 +2,9 @@
 
 ![alt gifs are awesome, right?](output.gif)
 
-## How to run
-```sh
-npm install 
-npm start
-```
-This should start two web servers and open `http://127.0.0.1:8080`
+### How to run
+0. Have a ChatEngine server running already
+
+1. Put your publishKey and subscribeKey in `script.js`
+
+2. Run `npm install && npm start`
