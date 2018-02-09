@@ -25,8 +25,8 @@ let config = { timeout: 2000 };
 
 // create an instance of chat-engine
 const ChatEngine = ChatEngineCore.create({
-    publishKey: YOUR_SUBSCRIBE_KEY,
-    subscribeKey: YOUR_PUBLISH_KEY
+    publishKey: YOUR_PUBLISH_KEY,
+    subscribeKey: YOUR_SUBSCRIBE_KEY
 });
 
 // connect kowalski to the network, and when it is successful, do some stuff
