@@ -1,4 +1,4 @@
-# Typing Indicator Plugin for Chat Engine
+# Typing Indicator Plugin for ChatEngine
 
 Adds the ability to show a typing indicator on a ChatEngine Chat
 
