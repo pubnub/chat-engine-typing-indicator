@@ -1,8 +1,10 @@
 /**
+* @overview Typing indicators show that the user is typing with visual cues such as blinking dots or an explicit notification such as “typing…”. The ChatEngine Typing Indicator plugin emits events when a user starts and stops typing. <br> <img src="plugins/chat-engine-typing-indicator/output.gif" height="300"></img>
 * Emits the ```$typingIndicator.startTyping``` and ``$typingIndicator.stopTyping``` even on a {@link Chat} when a user is marked as typing or not typing.
 * @module chat-engine-typing-indicator
 * @requires {@link ChatEngine}
 */
+
 
 /**
 @function
@@ -33,6 +35,7 @@ chat.on('$typingIndicator.stopTyping', (payload) => {
         (payload.user, "is not typing.");
 });
 */
+
 
 module.exports = (config = {}) => {
 
