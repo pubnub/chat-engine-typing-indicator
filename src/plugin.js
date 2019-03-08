@@ -37,7 +37,7 @@ chat.on('$typingIndicator.stopTyping', (payload) => {
 */
 
 
-module.exports = (config) => {
+module.exports = (config = {}) => {
 
     // set the default for typing
     // if the client types input, we wont fire "stopTyping" unless the client
