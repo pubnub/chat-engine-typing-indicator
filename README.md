@@ -1,3 +1,7 @@
+This repository is a part of the [ChatEngine Framework](https://github.com/pubnub/chat-engine).
+For more information on building chat applications with PubNub, see our
+[Chat Resource Center](http://www.pubnub.com/developers/chat-resource-center/).
+
 # Typing Indicator Plugin for ChatEngine
 
 Adds the ability to show a typing indicator on a ChatEngine Chat
@@ -44,4 +48,4 @@ ChatEngine.global.on('$typingIndicator.stopTyping', (payload) => {
 
 ## Support
 
-- If you **need help**, have a **general question** a **feature request** or to file a **bug**, contact <support@pubnub.com>
+- If you **need help**, have a **general question**, have a **feature request** or to file a **bug**, contact <support@pubnub.com>.
