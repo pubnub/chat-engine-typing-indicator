@@ -6,7 +6,7 @@
     "start": "http-server -o"
   },
   "dependencies": {
-    "chat-engine": "^0.8.3",
+    "chat-engine": "^0.9.21",
     "chat-engine-typing-indicator": "0.0.9",
     "express": "^4.16.1",
     "http-server": "^0.10.0"
