@@ -2,6 +2,7 @@
   "author": "Ian Jennings",
   "name": "chat-engine-typing-indicator",
   "version": "0.0.10",
+  "license": "SEE LICENSE IN LICENSE",
   "main": "src/plugin.js",
   "dependencies": {
     "chat-engine": "^0.9.21"
